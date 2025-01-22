@@ -1,0 +1,40 @@
+name: Build and Push Docker Image
+
+on:
+  push:
+    branches:
+      - main  # Trigger CI/CD khi có commit vào nhánh 'main'
+  pull_request:
+    branches:
+      - main  # Trigger khi có pull request vào nhánh 'main'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # Sử dụng Ubuntu runner để chạy job
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3  # Kiểm tra mã nguồn từ GitHub repository
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2  # Thiết lập Buildx để build image
+
+      - name: Cache Docker layers
+        uses: actions/cache@v2  # Lưu cache Docker layers để build nhanh hơn
+        with:
+          path: /tmp/.buildx-cache
+          key: ${{ runner.os }}-buildx-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-buildx-
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2  # Đăng nhập vào Docker Hub
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}  # Username Docker Hub
+          password: ${{ secrets.DOCKER_PASSWORD }}  # Sử dụng secret Docker Hub Token
+
+      - name: Build and push Docker image
+        run: |
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/nginx-v1.0.0 .
+          docker push ${{ secrets.DOCKER_USERNAME }}/nginx-v1.0.0  # Push Docker image lên Docker Hub
+
