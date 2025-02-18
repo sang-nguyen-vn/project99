@@ -7,6 +7,7 @@ COPY ./index.html /usr/share/nginx/html/
 # Sao chép các hình ảnh vào trong container
 COPY ./gitops-1.png /usr/share/nginx/html/
 COPY ./gitops-2.png /usr/share/nginx/html/
+COPY ./Codestar-NguyenHoangSang.png /usr/share/nginx/html/
 
 # Mở cổng 80 cho Nginx
 EXPOSE 80

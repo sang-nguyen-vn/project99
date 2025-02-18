@@ -21,11 +21,11 @@
             margin-bottom: 20px;
             text-align: center; /* Centered content */
         }
-        .image-container {
+        .image-container, .pdf-container {
             margin-top: 20px;
-            text-align: center; /* Center images */
+            text-align: center; /* Center images and PDFs */
         }
-        .image-container img {
+        .image-container img, .pdf-container iframe {
             width: 75%; /* Set images to take up 75% of screen width */
             max-width: 1000px; /* Limit max width */
         }
@@ -65,7 +65,7 @@
     </style>
 </head>
 <body>
-    <h1>Welcome to the project99 project by sang-nguyen-vn</h1>
+    <h1>Welcome to the project99 by Nguyen Hoang Sang</h1>
     <div class="content">
         <h2>Project Introduction</h2>
         <p>Deploy the project99 application with a design based on the <span class="highlight">GitOps</span> model. The tech stack includes:</p>
@@ -89,13 +89,35 @@
         <div class="caption">Automated GitOps Deployment</div>
     </div>
 
+    <!-- Display Certificate Image -->
+    <div class="image-container">
+        <h2>Code Star Academy - GitOps Certificate</h2>        
+        <img src="Codestar-NguyenHoangSang.png" alt="Certificate">
+        <div class="caption">GitOps Certificate</div>
+    </div>
+
+    <!-- Display PDF Certificate -->
+    <div class="pdf-container">
+        <h2>Linux Foundation - CKA Certificate</h2>
+        <iframe src="https://ti-user-certificates.s3.amazonaws.com/e0df7fbf-a057-42af-8a1f-590912be5460/849e3fb5-460e-4d69-a6fc-baea5201e5d3-sang-hoang-nguyen-6c7ca5dc-0aa5-4ec0-a458-c96b2ca2eb94-certificate.pdf" width="75%" height="600px"></iframe>
+        <div class="caption">Official Certificate</div>
+    </div>
+
+
+    <!-- Future Updates -->
+    <div class="content">
+        <h2>Future Updates</h2>
+        <p>This project will be continued to update new versions in the future...</p>
+        <p>Current version: 1.2.0 </p>
+    </div>
+
     <div id="node-info">
         <p>Node name: <span id="node-name">No information available</span></p>
         <p>Pod name: <span id="pod-name">No information available</span></p>
     </div>
 
     <div class="footer">
-        <p>This website was created by ChatGPT. ChatGPT is happy to have served you.</p>
+        <p>This website was created by ChatGPT. ChatGPT is happy to have served SangNguyen.</p>
     </div>
 
     <script>
