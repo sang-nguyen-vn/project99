@@ -148,8 +148,8 @@
     </div>
 
     <div id="node-info">
-        <p>Node name: <span id="node-name">No information available</span></p>
-        <p>Pod name: <span id="pod-name">No information available</span></p>
+        <p>Node name: <span id="node-name">node-01</span></p>
+        <p>Pod name: <span id="pod-name">pod-99</span></p>
     </div>
 
     <div class="footer">
@@ -159,21 +159,19 @@
     <script>
         async function getNodeAndPodInfo() {
             try {
-                let nodeName = await fetchNodeInfo();
-                let podName = await fetchPodInfo();
-                document.getElementById('node-name').textContent = nodeName;
-                document.getElementById('pod-name').textContent = podName;
+                // Truy vấn từ file env.json được sinh ra
+                const response = await fetch('/env.json');
+                const data = await response.json();
+                document.getElementById('node-name').textContent = data.NODE_NAME;
+                document.getElementById('pod-name').textContent = data.POD_NAME;
             } catch (error) {
                 console.error('Error retrieving Node and Pod information:', error);
             }
-        }
-        function fetchNodeInfo() {
-            return 'node-01';
-        }
-        function fetchPodInfo() {
-            return 'pod-99';
         }
         window.onload = getNodeAndPodInfo;
     </script>
 </body>
 </html>
+
+
+
