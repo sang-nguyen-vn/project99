@@ -8,7 +8,9 @@ COPY ./index.html /usr/share/nginx/html/
 COPY ./gitops-1.png /usr/share/nginx/html/
 COPY ./gitops-2.png /usr/share/nginx/html/
 COPY ./Codestar-NguyenHoangSang.png /usr/share/nginx/html/
-COPY ./My-own-project.png /usr/share/nginx/html/
+COPY ./Infras-as-code.png /usr/share/nginx/html/
+COPY ./Traffic-Flow.png /usr/share/nginx/html/
+COPY ./CI-CD.png /usr/share/nginx/html/
 
 # Mở cổng 80 cho Nginx
 EXPOSE 80
