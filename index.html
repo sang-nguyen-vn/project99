@@ -3,55 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project99 - sang-nguyen-vn</title>
+    <title>My Private Project - sang-nguyen-vn</title>
     <style>
-        /* Set background color to Dark Theme */
+        /* Set background color to Dark Theme and center content */
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
-            margin: 20px;
-            background-color: #121212; /* Dark Theme background */
-            color: white; /* Main text color is white */
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
         }
         h1, h2 {
-            color: white; /* Centered title with white color */
+            color: white;
             text-align: center;
         }
         .content {
-            margin-bottom: 20px;
-            text-align: center; /* Centered content */
+            text-align: center;
+            max-width: 800px;
+            width: 90%;
+        }
+        ul {
+            list-style-type: disc; /* Show bullet points */
+            padding-left: 40px; /* Indent list */
+            text-align: left; /* Align list text to the left */
+        }
+        li {
+            margin-bottom: 10px;
         }
         .image-container, .pdf-container {
             margin-top: 20px;
-            text-align: center; /* Center images and PDFs */
+            text-align: center;
         }
         .image-container img, .pdf-container iframe {
-            width: 75%; /* Set images to take up 75% of screen width */
-            max-width: 1000px; /* Limit max width */
+            width: 75%;
+            max-width: 1000px;
         }
         .caption {
             text-align: center;
             font-style: italic;
             margin-top: 5px;
-            color: white; /* Caption text color */
-        }
-        ul {
-            list-style-type: none; /* Remove bullet points */
-            padding: 0; /* Remove default padding */
-            color: white; /* Main text color for list */
-        }
-        li {
-            margin-bottom: 10px; /* Add space between list items */
+            color: white;
         }
         .footer {
             text-align: center;
             margin-top: 30px;
             font-size: 14px;
-            color: white; /* Footer text color */
+            color: white;
         }
         .highlight {
             font-weight: bold;
-            color: rgb(255, 223, 0); /* Yellow color for tech keywords */
+            color: rgb(255, 223, 0);
         }
         #node-info {
             position: fixed;
@@ -65,50 +72,67 @@
     </style>
 </head>
 <body>
-    <h1>Welcome to the project99 by Nguyen Hoang Sang</h1>
+    <h1>Welcome to My Private Project</h1>
     <div class="content">
         <h2>Project Introduction</h2>
-        <p>Deploy the project99 application with a design based on the <span class="highlight">GitOps</span> model. The tech stack includes:</p>
         <ul>
-            <li><span class="highlight">CI</span>: using <span class="highlight">GitHub</span> as the source code repository, <span class="highlight">GitHub Action</span> for automated testing and building images.</li>
-            <li><span class="highlight">DockerHub</span>: Storing application images.</li>
-            <li><span class="highlight">CD</span>: Using <span class="highlight">k3s Cluster</span> on <span class="highlight">AWS</span> automatically deployed via <span class="highlight">Ansible</span> and <span class="highlight">Terraform</span>.</li>
-            <li><span class="highlight">ArgoCD</span> <span class="highlight">Helm Chart</span> for deploying the application.</li>
-            <li><span class="highlight">MetalLB</span> as the load balancer, <span class="highlight">HA Proxy</span> as the forwarder.</li>
-            <li><span class="highlight">Cert-manager</span> for automatic certificate management.</li>
+            <li>Deploy the <span class="highlight">tmyapp02.sangnguyen.win</span> web app with a design based on the <span class="highlight">GitOps</span> model.</li>
+            <li><span class="highlight">For CI</span>:
+                <ul>
+                    <li>Using <span class="highlight">GitHub</span> as the source code repository.</li>
+                    <li>Utilizing <span class="highlight">GitHub Actions</span> for automated testing and image building.</li>
+                    <li>Storing application images on <span class="highlight">DockerHub</span>.</li>
+                </ul>
+            </li>
+            <li><span class="highlight">For CD</span>:
+                <ul>
+                    <li>Automatically deploying the <span class="highlight">K3s Cluster</span> on <span class="highlight">AWS</span> using <span class="highlight">Ansible</span>, <span class="highlight">Terraform</span>, and <span class="highlight">Bash scripts</span>.</li>
+                    <li>Using <span class="highlight">ArgoCD</span> and <span class="highlight">Helm Chart</span> for GitOps. <span class="highlight">ArgoCD</span> automatically syncs application code and deploys it on the K3s Cluster.</li>
+                    <li>Implementing <span class="highlight">MetalLB</span> as the load balancer to provide IP addresses for Ingress services.</li>
+                    <li>Configuring <span class="highlight">HA Proxy</span> for SSL termination.</li>
+                    <li>Managing certificates automatically with <span class="highlight">Cert-manager</span>.</li>
+                </ul>
+            </li>
         </ul>
     </div>
+</body>
 
     <div class="image-container">
-        <img src="gitops-1.png" alt="Overview-1">
-        <div class="caption">Overview-1</div>
+        <h2>Diagram</h2>        
+        <img src="My-own-project.png" alt="Project Diagram">
+        <div class="caption">My Private Project</div>
     </div>
 
     <div class="image-container">
+        <h2>GitOps ArgoCD</h2>       
+        <img src="gitops-1.png" alt="Overview-1">
+        <div class="caption">Overview</div>
+    </div>
+
+    <div class="image-container">
+        <h2>GitOps ArgoCD</h2> 
         <img src="gitops-2.png" alt="Automated GitOps Deployment">
         <div class="caption">Automated GitOps Deployment</div>
     </div>
 
-    <!-- Display Certificate Image -->
     <div class="image-container">
         <h2>Code Star Academy - GitOps Certificate</h2>        
-        <img src="Codestar-NguyenHoangSang.png" alt="Certificate">
+        <img src="Codestar-NguyenHoangSang.png" alt="GitOps Certificate">
         <div class="caption">GitOps Certificate</div>
     </div>
 
-    <!-- Display PDF Certificate -->
     <div class="pdf-container">
         <h2>Linux Foundation - CKA Certificate</h2>
-        <iframe src="https://ti-user-certificates.s3.amazonaws.com/e0df7fbf-a057-42af-8a1f-590912be5460/849e3fb5-460e-4d69-a6fc-baea5201e5d3-sang-hoang-nguyen-6c7ca5dc-0aa5-4ec0-a458-c96b2ca2eb94-certificate.pdf" width="75%" height="600px"></iframe>
+        <iframe src="https://ti-user-certificates.s3.amazonaws.com/e0df7fbf-a057-42af-8a1f-590912be5460/849e3fb5-460e-4d69-a6fc-baea5201e5d3-sang-hoang-nguyen-6c7ca5dc-0aa5-4ec0-a458-c96b2ca2eb94-certificate.pdf" width="75%" height="300px"></iframe>
         <div class="caption">Official Certificate</div>
     </div>
 
-
-    <!-- Future Updates -->
     <div class="content">
         <h2>Future Updates</h2>
-        <p>This project will be continued to update new versions in the future...</p>
-        <p>Current version: 1.2.0 </p>
+        <ul>
+            <li>This project will continue to be updated with new versions in the future.</li>
+            <li>Current version: <span class="highlight">1.2.0</span></li>
+        </ul>
     </div>
 
     <div id="node-info">
@@ -117,36 +141,26 @@
     </div>
 
     <div class="footer">
-        <p>This website was created by ChatGPT. ChatGPT is happy to have served SangNguyen.</p>
+        <p>This page was created by Sang Nguyen & ChatGPT.</p>
     </div>
 
     <script>
-        // Function to get Node and Pod info from Kubernetes Cluster
         async function getNodeAndPodInfo() {
-            // Get Node and Pod info via API or kubectl command
             try {
-                let nodeName = await fetchNodeInfo(); // Example call to get Node Name
-                let podName = await fetchPodInfo();   // Example call to get Pod Name
-                
+                let nodeName = await fetchNodeInfo();
+                let podName = await fetchPodInfo();
                 document.getElementById('node-name').textContent = nodeName;
                 document.getElementById('pod-name').textContent = podName;
             } catch (error) {
                 console.error('Error retrieving Node and Pod information:', error);
             }
         }
-
-        // Example functions to fetch Node and Pod info
         function fetchNodeInfo() {
-            // You can use Kubernetes API or kubectl command to get Node info
-            return 'node-01'; // Example of simulated info
+            return 'node-01';
         }
-
         function fetchPodInfo() {
-            // Similarly, use Kubernetes API or kubectl to get Pod info
-            return 'pod-99'; // Example of simulated info
+            return 'pod-99';
         }
-
-        // Call function on page load
         window.onload = getNodeAndPodInfo;
     </script>
 </body>
