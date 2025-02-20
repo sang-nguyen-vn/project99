@@ -148,28 +148,34 @@
     </div>
 
     <div id="node-info">
-        <p>Node name: <span id="node-name">node-01</span></p>
-        <p>Pod name: <span id="pod-name">pod-99</span></p>
-    </div>
+        <p>Node name: <span id="node-name">Loading...</span></p>
+        <p>Pod name: <span id="pod-name">Loading...</span></p>
+    </div>  
 
     <div class="footer">
         <p>This page was created by Sang Nguyen & ChatGPT.</p>
-    </div>
+    </div>  
 
     <script>
-        async function getNodeAndPodInfo() {
-            try {
-                // Truy vấn từ file env.json được sinh ra
-                const response = await fetch('/env.json');
-                const data = await response.json();
-                document.getElementById('node-name').textContent = data.NODE_NAME;
-                document.getElementById('pod-name').textContent = data.POD_NAME;
-            } catch (error) {
-                console.error('Error retrieving Node and Pod information:', error);
-            }
+      async function getNodeAndPodInfo() {
+        try {
+          // Lấy dữ liệu từ file env.json được tạo ra bởi container
+          const response = await fetch('/env.json');
+          if (!response.ok) {
+            throw new Error('Failed to fetch env.json');
+          }
+          const data = await response.json();
+          document.getElementById('node-name').textContent = data.NODE_NAME || 'N/A';
+          document.getElementById('pod-name').textContent = data.POD_NAME || 'N/A';
+        } catch (error) {
+          console.error('Error retrieving Node and Pod information:', error);
+          document.getElementById('node-name').textContent = 'node-1';
+          document.getElementById('pod-name').textContent = 'tmyapp02-7d7dc7ccb4-pgtnz';
         }
-        window.onload = getNodeAndPodInfo;
+      }
+      window.onload = getNodeAndPodInfo;
     </script>
+
 </body>
 </html>
 
