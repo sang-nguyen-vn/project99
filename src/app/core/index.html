@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Private Project - sang-nguyen-vn</title>
+    <style>
+        /* Set background color to Dark Theme and center content */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+        h1, h2 {
+            color: white;
+            text-align: center;
+        }
+        .content {
+            text-align: center;
+            max-width: 800px;
+            width: 90%;
+        }
+        ul {
+            list-style-type: disc; /* Show bullet points */
+            padding-left: 40px; /* Indent list */
+            text-align: left; /* Align list text to the left */
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .image-container, .pdf-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .image-container img, .pdf-container iframe {
+            width: 75%;
+            max-width: 1000px;
+        }
+        .caption {
+            text-align: center;
+            font-style: italic;
+            margin-top: 5px;
+            color: white;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 14px;
+            color: white;
+        }
+        .highlight {
+            font-weight: bold;
+            color: rgb(255, 223, 0);
+        }
+        #node-info {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to My Private Project</h1>
+    <div class="content">
+        <h2>Project Introduction</h2>
+        <ul>
+            <li>Deploy the <span class="highlight">tmyapp02.sangnguyen.win</span> web app with a design based on the <span class="highlight">GitOps</span> model.</li>
+            <li><span class="highlight">For CI</span>:
+                <ul>
+                    <li>Using <span class="highlight">GitHub</span> as the source code repository.</li>
+                    <li>Utilizing <span class="highlight">GitHub Actions</span> for automated testing and image building.</li>
+                    <li>Storing application images on <span class="highlight">DockerHub</span>.</li>
+                </ul>
+            </li>
+            <li><span class="highlight">For CD</span>:
+                <ul>
+                    <li>Automatically deploying the <span class="highlight">K3s Cluster</span> on <span class="highlight">AWS</span> using <span class="highlight">Ansible</span>, <span class="highlight">Terraform</span>, and <span class="highlight">Bash scripts</span>.</li>
+                    <li>Using <span class="highlight">ArgoCD</span> and <span class="highlight">Helm Chart</span> for GitOps. <span class="highlight">ArgoCD</span> automatically syncs application code and deploys it on the K3s Cluster.</li>
+                    <li>Implementing <span class="highlight">MetalLB</span> as the load balancer to provide IP addresses for Ingress services.</li>
+                    <li>Configuring <span class="highlight">HA Proxy</span> for SSL termination.</li>
+                    <li>Managing certificates automatically with <span class="highlight">Cert-manager</span>.</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</body>
+
+    <div class="image-container">
+        <h2>Infrastructure As Code</h2>        
+        <img src="Infras-as-code.png" alt="Project Diagram">
+        <div class="caption">Provisioning and Automation</div>
+    </div>
+
+    <div class="image-container">
+        <h2>CI and CD Workflow</h2>        
+        <img src="CI-CD.png" alt="Project Diagram">
+        <div class="caption">CI and CD Workflow</div>
+    </div>
+
+    <div class="image-container">
+        <h2>Kubernetes Traffic Flow</h2>        
+        <img src="Traffic-Flow.png" alt="Project Diagram">
+        <div class="caption">Traffic Flow</div>
+    </div>
+
+    <div class="image-container">
+        <h2>GitOps ArgoCD UI Overview</h2>       
+        <img src="gitops-1.png" alt="Overview-1">
+        <div class="caption">Overview</div>
+    </div>
+
+    <div class="image-container">
+        <h2>GitOps ArgoCD UI Management</h2> 
+        <img src="gitops-2.png" alt="Automated GitOps Deployment">
+        <div class="caption">Automated GitOps Deployment</div>
+    </div>
+
+    <div class="image-container">
+        <h2>Code Star Academy - GitOps Certificate</h2>        
+        <img src="Codestar-NguyenHoangSang.png" alt="GitOps Certificate">
+        <div class="caption">GitOps Certificate</div>
+    </div>
+
+    <div class="pdf-container">
+        <h2>Linux Foundation - CKA Certificate</h2>
+        <iframe src="https://ti-user-certificates.s3.amazonaws.com/e0df7fbf-a057-42af-8a1f-590912be5460/849e3fb5-460e-4d69-a6fc-baea5201e5d3-sang-hoang-nguyen-6c7ca5dc-0aa5-4ec0-a458-c96b2ca2eb94-certificate.pdf" width="75%" height="300px"></iframe>
+        <div class="caption">Official Certificate</div>
+    </div>
+
+    <div class="content">
+        <h2>Future Updates</h2>
+        <ul>
+            <li>This project will continue to be updated with new versions in the future.</li>
+            <li>Current version: <span class="highlight">1.2.3</span></li>
+        </ul>
+    </div>
+
+    <div id="node-info">
+        <p>Node name: <span id="node-name">Loading...</span></p>
+        <p>Pod name: <span id="pod-name">Loading...</span></p>
+    </div>  
+
+    <div class="footer">
+        <p>This page was created by Sang Nguyen & ChatGPT.</p>
+    </div>  
+
+    <script>
+      async function getNodeAndPodInfo() {
+        try {
+          // Lấy dữ liệu từ file env.json được tạo ra bởi container
+          const response = await fetch('/env.json');
+          if (!response.ok) {
+            throw new Error('Failed to fetch env.json');
+          }
+          const data = await response.json();
+          document.getElementById('node-name').textContent = data.NODE_NAME || 'N/A';
+          document.getElementById('pod-name').textContent = data.POD_NAME || 'N/A';
+        } catch (error) {
+          console.error('Error retrieving Node and Pod information:', error);
+          document.getElementById('node-name').textContent = 'node-1';
+          document.getElementById('pod-name').textContent = 'tmyapp02-7d7dc7ccb4-pgtnz';
+        }
+      }
+      window.onload = getNodeAndPodInfo;
+    </script>
+
+</body>
+</html>
+
+
+
